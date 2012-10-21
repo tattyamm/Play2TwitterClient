@@ -1,0 +1,55 @@
+@(tweetModel:Array[TweetModel])
+
+@import helper._
+
+@main("Play2TwitterClient - タイムライン") {
+
+<h1>Play2TwitterClient</h1>
+
+
+<h2>つぶやく</h2>
+<div class="well">
+    <form action="./post" method="post">
+        <textarea type="text" name="message" placeholder="ここに入力" class="span6" rows="3"></textarea>
+        <button type="submit" type="button" class="btn btn-info">つぶやく</button>
+    </form>
+</div>
+
+
+<h2>タイムライン</h2>
+@tweetModel.map { tweet =>
+<div class="well">
+    <div class="row-fluid">
+        <div class="span1">
+            <a href='http://twitter.com/@tweet.screen_name'><img src='@tweet.profile_image_url' width='55' height='55'></a>
+        </div>
+        <div class="span11">
+            <dl class="dl-horizontal">
+                <dt>ID</dt>
+                <dd><a href='http://twitter.com/@tweet.screen_name'>@@@tweet.screen_name</a>&nbsp;</dd>
+                <dt>名前</dt>
+                <dd>@tweet.name&nbsp;</dd>
+                <dt>ツイート</dt>
+                <dd>@tweet.text&nbsp;</dd>
+                <dt>時刻</dt>
+                <dd>@tweet.created_at&nbsp;</dd>
+            </dl>
+        </div>
+    </div>
+</div>
+}
+
+<h2>ログイン・ログアウト</h2>
+<ul>
+    <li>
+        <a href="./auth">ログイン</a>
+    </li>
+    <li>
+        <a href="./logout">ログアウト</a>
+    </li>
+</ul>
+
+
+}
+
+

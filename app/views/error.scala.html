@@ -1,0 +1,19 @@
+@(message:String)
+@import helper._
+
+@main("Play2TwitterClient - エラー") {
+
+<h1>Play2TwitterClient</h1>
+
+@if(message != ""){
+  <h2>エラー</h2>
+  <div class="alert">詳細：@message</div>
+}else{
+}
+
+<h4><a href="./logout">ログアウトしてトップへ</a></h4>
+
+}
+
+
+
