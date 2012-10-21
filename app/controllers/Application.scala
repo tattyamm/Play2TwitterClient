@@ -189,7 +189,7 @@ object Application extends Controller {
             case Left(e) => throw e
           }
       }.getOrElse(
-        TWITTER.retrieveRequestToken("http://192.168.11.2:9000/auth") match { //環境によりURL変更の必要
+        TWITTER.retrieveRequestToken(retrieveRequestToken) match { //環境によりURL変更の必要
           //コールバックURL
           case Right(t) => {
             // We received the unauthorized tokens in the OAuth object - store it before we proceed
